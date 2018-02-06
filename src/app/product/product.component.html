@@ -1,7 +1,7 @@
 <h3>
   Products
 </h3>
-<h6>
+<h6 *ngIf="selectedCategory">
   you selected <span class="badge badge-secondary">{{selectedCategory}}</span>
 </h6>
 <table class="table table-striped">

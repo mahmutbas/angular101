@@ -3,6 +3,7 @@ import { Product } from './product';
 import { ProductService } from './product.service';
 import { ActivatedRoute } from '@angular/router';
 import { NotificationsService } from 'angular2-notifications';
+import { CartService } from '../cart/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -19,7 +20,8 @@ export class ProductComponent implements OnInit {
   //burda new yapmak yerine yeni bir instance enjekte edilerek oluşturuluyor
   constructor(private productService: ProductService,
     private activatedRoute: ActivatedRoute,
-    private notificationsService:NotificationsService
+    private notificationsService:NotificationsService,
+    private cartService:CartService
   ) {
 
   }
@@ -42,6 +44,7 @@ export class ProductComponent implements OnInit {
   {
     //this.selectedProduct=product.productName
     //alert("You added "+product.productName)
+    this.cartService.addToCard(product);
     this.notificationsService.success("Successful",product.productName+" added to card.")
   }
 

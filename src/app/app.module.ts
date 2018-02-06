@@ -9,6 +9,8 @@ import {SimpleNotificationsModule, NotificationsService} from 'angular2-notifica
 import { AppComponent } from './app.component';
 import { ProductComponent } from './product/product.component';
 import { CategoryComponent } from './category/category.component';
+import { CartComponent } from './cart/cart.component';
+import { CartService } from './cart/cart.service';
 
 
 
@@ -16,15 +18,16 @@ import { CategoryComponent } from './category/category.component';
   declarations: [
     AppComponent,
     ProductComponent,
-    CategoryComponent
-  ],
+    CategoryComponent,
+    CartComponent
+],
   imports: [
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
     SimpleNotificationsModule.forRoot()
   ],
-  providers: [NotificationsService],
+  providers: [NotificationsService,CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

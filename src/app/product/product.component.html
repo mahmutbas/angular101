@@ -1,0 +1,13 @@
+<h3>
+  Products
+</h3>
+<table class="table table-striped">
+  <tr *ngFor="let product of products">
+    <td> {{product.productId}} </td>
+    <td> {{product.categoryId}} </td>
+    <td> {{product.productName}} </td>
+    <td> {{product.quantityPerUnit}} </td>
+    <td> {{product.unitPrice}} </td>
+    <td> {{product.unitInStock}} </td>
+  </tr>
+</table>

@@ -1,27 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import 'rxjs/add/operator/map';
-import { Observable } from 'rxjs/Observable';
 import { Category } from './category';
+import { CategoryService } from './category.service';
 
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
-  styleUrls: ['./category.component.css']
+  styleUrls: ['./category.component.css'],
+  providers:[CategoryService]
 })
 export class CategoryComponent implements OnInit {
 
   categories:Category[];
 
-  constructor(private http: Http) { }
+  constructor(private categoryService:CategoryService) { }
 
   ngOnInit() {
-    this.getCategories().subscribe(c=>this.categories = c);
+    this.categoryService.getCategories().subscribe(c=>this.categories = c);
   }
 
-  getCategories():Observable<Category[]>
-  {
-    return this.http.get("http://northwindapi.azurewebsites.net/api/categories").map(response => response.json())
-  }
-
+  
 }

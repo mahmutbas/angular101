@@ -7,10 +7,13 @@ import { Product } from './product';
 @Injectable()
 export class ProductService {
 
-constructor(private http: Http) { }
+  constructor(private http: Http) { }
 
-getProducts(): Observable<Product[]> {
+  getProducts(seoUrl: string): Observable<Product[]> {
+    if (seoUrl) {
+      return this.http.get("http://northwindapi.azurewebsites.net/api/products/" + seoUrl).map(response => response.json())
+    }
     return this.http.get("http://northwindapi.azurewebsites.net/api/products").map(response => response.json())
   }
-  
+
 }

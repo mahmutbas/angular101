@@ -1,6 +1,9 @@
 <h3>
   Products
 </h3>
+<h6>
+  you selected <span class="badge badge-secondary">{{selectedCategory}}</span>
+</h6>
 <table class="table table-striped">
   <tr *ngFor="let product of products">
     <td> {{product.productId}} </td>

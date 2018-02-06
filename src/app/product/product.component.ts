@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductComponent implements OnInit {
 
   products: Product[];
+  selectedCategory:string;
 
   //burda new yapmak yerine yeni bir instance enjekte edilerek oluşturuluyor
   constructor(private productService: ProductService,
@@ -23,6 +24,7 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.getProducts(params["seoUrl"])
+      this.selectedCategory = params["seoUrl"]
     });
     //this.productService.getProducts().subscribe(p => this.products = p);
   }

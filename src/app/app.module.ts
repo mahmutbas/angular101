@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
-import {appRoutes} from './app.routes'
+import {appRoutes} from './app.routes';
+import {SimpleNotificationsModule, NotificationsService} from 'angular2-notifications';
 
 
 import { AppComponent } from './app.component';
@@ -20,9 +21,10 @@ import { CategoryComponent } from './category/category.component';
   imports: [
     BrowserModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    SimpleNotificationsModule.forRoot()
   ],
-  providers: [],
+  providers: [NotificationsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

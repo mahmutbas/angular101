@@ -4,6 +4,9 @@
 <h6 *ngIf="selectedCategory">
   you selected <span class="badge badge-secondary">{{selectedCategory}}</span>
 </h6>
+<!-- <div *ngIf="selectedProduct" class="alert alert-primary" role="alert">
+You added {{selectedProduct}} to chart!
+</div> -->
 <table class="table table-striped">
   <tr *ngFor="let product of products">
     <td> {{product.productId}} </td>
@@ -12,6 +15,6 @@
     <td> {{product.quantityPerUnit}} </td>
     <td> {{product.unitPrice}} </td>
     <td> {{product.unitInStock}} </td>
-    <td><button type="button" class="btn btn-primary btn-sm">add to chart</button></td>
+    <td><button (click)="addToChart(product)" type="button" class="btn btn-primary btn-sm">add to chart</button></td>
   </tr>
 </table>

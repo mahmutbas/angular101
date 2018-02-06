@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Turkcell 3';
   firstname = "Mahmut Baş"
+  public options = {
+    position:["bottom","right"],
+    timeOut:3000,
+    lastOnBottom:true
+  }
 }

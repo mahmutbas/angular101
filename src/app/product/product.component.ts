@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from './product';
 import { ProductService } from './product.service';
 import { ActivatedRoute } from '@angular/router';
+import { NotificationsService } from 'angular2-notifications';
 
 @Component({
   selector: 'app-product',
@@ -13,10 +14,12 @@ export class ProductComponent implements OnInit {
 
   products: Product[];
   selectedCategory:string;
+  //selectedProduct:string;
 
   //burda new yapmak yerine yeni bir instance enjekte edilerek oluşturuluyor
   constructor(private productService: ProductService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private notificationsService:NotificationsService
   ) {
 
   }
@@ -33,6 +36,13 @@ export class ProductComponent implements OnInit {
     this.productService.getProducts(seoUrl).subscribe(p => {
       this.products = p
     })
+  }
+
+  addToChart(product:Product)
+  {
+    //this.selectedProduct=product.productName
+    //alert("You added "+product.productName)
+    this.notificationsService.success("Successful",product.productName+" added to card.")
   }
 
 }
